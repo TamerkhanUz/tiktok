@@ -4,10 +4,10 @@ from fastapi import FastAPI, Query
 app = FastAPI()
 
 @app.get("/tiktok")
-def tiktok_proxy(url: str = Query(...)):
+def proxy_tiktok(url: str = Query(...)):
     proxies = {
-        "http": "http://USERNAME:PASSWORD@PROXY_IP:PORT",
-        "https": "http://USERNAME:PASSWORD@PROXY_IP:PORT",
+        "http": "http://38.242.228.144:8081",
+        "https": "http://38.242.228.144:8081",
     }
     try:
         resp = requests.get(url, proxies=proxies, timeout=10)
